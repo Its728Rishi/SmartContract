@@ -1,80 +1,81 @@
-VoterIDSystem
+## VoterIDSystem
 
-Overview
+# Overview
 
-.The VoterIDSystem is a smart contract written in Solidity for Ethereum blockchain. This contract manages a simple voter ID system where an admin can register, verify, update, and remove voters. The contract includes basic security features such as restricting certain functions to only the admin.
+The VoterIDSystem is a smart contract written in Solidity for Ethereum blockchain. This contract manages a simple voter ID system where an admin can register, verify, update, and remove voters. The contract includes basic security features such as restricting certain functions to only the admin.
 
-Features
+# Features
 
-.Admin Control: Only the admin (the account that deployed the contract) can register, update, or remove voters. 
+Admin Control: Only the admin (the account that deployed the contract) can register, update, or remove voters. 
 
-.Voter Registration: The admin can register voters by providing a unique ID, name, and address.
+Voter Registration: The admin can register voters by providing a unique ID, name, and address.
 
-.Voter Verification: Anyone can verify if a voter is registered.
+Voter Verification: Anyone can verify if a voter is registered.
 
-.Voter Name Update: The admin can update the name of a registered voter.
+Voter Name Update: The admin can update the name of a registered voter.
 
-.Voter Removal: The admin can remove a registered voter from the system.
+Voter Removal: The admin can remove a registered voter from the system.
 
-Contract Structure
+## Contract Structure
 
-State Variables
+# State Variables
 
-.mapping(address => Voter) public voters: Maps each voter's address to their voter details.
+mapping(address => Voter) public voters: Maps each voter's address to their voter details.
 
-.uint256 public totalVoters: Keeps track of the total number of registered voters.
+uint256 public totalVoters: Keeps track of the total number of registered voters.
 
-.address public admin: Stores the address of the admin who deployed the contract.
+address public admin: Stores the address of the admin who deployed the contract.
 
-Structs
+# Structs
 
-.struct Voter: Represents a voter with an ID, name, and registration status.
+struct Voter: Represents a voter with an ID, name, and registration status.
 
-Modifiers
+# Modifiers
 
-.onlyAdmin(): Restricts function access to the admin only.
+onlyAdmin(): Restricts function access to the admin only.
 
-Events
+# Events
 
-.event VoterRegistered(address voterAddress, uint256 voterId, string name): Emitted when a voter is registered.
+event VoterRegistered(address voterAddress, uint256 voterId, string name): Emitted when a voter is registered.
 
-.event VoterVerified(address voterAddress, uint256 voterId): Emitted when a voter is verified.
+event VoterVerified(address voterAddress, uint256 voterId): Emitted when a voter is verified.
 
-Functions
+# Functions
 
-.constructor(): Initializes the contract and sets the deployer as the admin.
+constructor(): Initializes the contract and sets the deployer as the admin.
 
-.registerVoter(address _voterAddress, uint256 _voterId, string memory _name) public onlyAdmin: Registers a new voter.
+registerVoter(address _voterAddress, uint256 _voterId, string memory _name) public onlyAdmin: Registers a new voter.
 
-.verifyVoter(address _voterAddress) public view returns (bool): Verifies if a voter is registered.
+verifyVoter(address _voterAddress) public view returns (bool): Verifies if a voter is registered.
 
-.updateVoterName(address _voterAddress, string memory _newName) public onlyAdmin: Updates the name of a registered voter.
+updateVoterName(address _voterAddress, string memory _newName) public onlyAdmin: Updates the name of a registered voter.
 
-.removeVoter(address _voterAddress) public onlyAdmin: Removes a registered voter.
+removeVoter(address _voterAddress) public onlyAdmin: Removes a registered voter.
 
-Usage
+## Usage
 
-Deployment
+# Deployment
 
-.To deploy the contract, use a suitable Ethereum development environment like Remix or Truffle. Ensure you have an Ethereum wallet with some test ETH for gas fees.
+To deploy the contract, use a suitable Ethereum development environment like Remix or Truffle. Ensure you have an Ethereum wallet with some test ETH for gas fees.
 
-Interacting with the Contract
+## Interacting with the Contract
 
-Register a Voter
+# Register a Voter
 
-.Call registerVoter(address _voterAddress, uint256 _voterId, string memory _name) with the voter's address, ID, and name.
+Call registerVoter(address _voterAddress, uint256 _voterId, string memory _name) with the voter's address, ID, and name.
 
-Verify a Voter
+# Verify a Voter
 
-.Call verifyVoter(address _voterAddress) with the voter's address. This will return true if the voter is registered.
+Call verifyVoter(address _voterAddress) with the voter's address. This will return true if the voter is registered.
 
-Update Voter Name
+# Update Voter Name
 
-.Call updateVoterName(address _voterAddress, string memory _newName) with the voter's address and the new name.
+Call updateVoterName(address _voterAddress, string memory _newName) with the voter's address and the new name.
 
-Remove a Voter
+# Remove a Voter
 
-.Call removeVoter(address _voterAddress) with the voter's address to remove them from the registry.
+Call removeVoter(address _voterAddress) with the voter's address to remove them from the registry.
+
 
 Example
 
@@ -146,6 +147,6 @@ Example
     }
     }
     
-License
+## License
 
-.This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
